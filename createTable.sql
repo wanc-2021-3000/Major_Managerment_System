@@ -1,0 +1,156 @@
+CREATE TABLE `jxkj_pth_table` (
+  `pth_batch_id` varchar(30) NOT NULL,
+  `start_date` varchar(14) DEFAULT NULL,
+  `start_time` varchar(10) DEFAULT NULL,
+  `end_date` varchar(14) DEFAULT NULL,
+  `endtime` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`pth_batch_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `jxkj_student_table` (
+  `student_id` varchar(30) NOT NULL,
+  `student_name` varchar(300) DEFAULT NULL,
+  `sex` varchar(6) DEFAULT NULL,
+  `college` varchar(300) DEFAULT NULL,
+  `field` varchar(300) DEFAULT NULL,
+  `classes` varchar(300) DEFAULT NULL,
+  `grade` varchar(30) DEFAULT NULL,
+  `id_no` varchar(25) NOT NULL,
+  `nation` varchar(25) DEFAULT NULL,
+  `birthday` varchar(45) DEFAULT NULL,
+  `location` varchar(45) DEFAULT NULL,
+  `schooling` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`student_id`,`id_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `jxkj_student_train_table` (
+  `id_no` varchar(30) NOT NULL,
+  `student_id` varchar(45) NOT NULL,
+  `train_room` varchar(45) DEFAULT NULL,
+  `train_time` varchar(45) DEFAULT NULL,
+  `train_school` varchar(45) DEFAULT NULL,
+  `test_time` varchar(45) DEFAULT NULL,
+  `test_school` varchar(45) DEFAULT NULL,
+  `test_room` varchar(45) DEFAULT NULL,
+  `student_name` varchar(100) NOT NULL,
+  `cert_time` varchar(45) DEFAULT NULL,
+  `cert_school` varchar(45) DEFAULT NULL,
+  `cert_room` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_no`,`student_id`,`student_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE TABLE `jxkj_user_registry` (
+  `student_name` varchar(300) DEFAULT NULL COMMENT '姓名',
+  `id_no` varchar(25) NOT NULL COMMENT '身份证',
+  `sex` varchar(6) DEFAULT NULL COMMENT '性别',
+  `nation` varchar(60) DEFAULT NULL COMMENT '民族',
+  `grade` varchar(300) DEFAULT NULL COMMENT '年级、学级',
+  `college` varchar(300) DEFAULT NULL COMMENT '学院',
+  `field` varchar(300) DEFAULT NULL COMMENT '专业',
+  `career` varchar(100) DEFAULT NULL COMMENT '职业',
+  `student_id` varchar(25) NOT NULL COMMENT '学号',
+  `born_province` varchar(60) DEFAULT NULL COMMENT '出生省份',
+  `born_city` varchar(100) DEFAULT NULL COMMENT '出生城市',
+  `born_country` varchar(300) DEFAULT NULL COMMENT '出生县区',
+  `live_province` varchar(60) DEFAULT NULL COMMENT '现居省份',
+  `live_city` varchar(100) DEFAULT NULL COMMENT '现居城市',
+  `live_country` varchar(300) DEFAULT NULL COMMENT '生活县区',
+  `phoneno` varchar(25) DEFAULT NULL COMMENT '手机号',
+  `certificate_amount` varchar(30) DEFAULT NULL COMMENT '证书费',
+  `material_amount` varchar(30) DEFAULT NULL COMMENT '资料费',
+  `book_amount` varchar(30) DEFAULT NULL COMMENT '教材费',
+  `other_amount` varchar(30) DEFAULT NULL COMMENT '其他费用',
+  `post_code` varchar(20) DEFAULT NULL COMMENT '邮编',
+  `address` varchar(300) DEFAULT NULL COMMENT '住址',
+  `birthday` varchar(45) NOT NULL COMMENT '出生年月',
+  `test_degree` varchar(45) DEFAULT NULL COMMENT '报考级别',
+  `train` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`id_no`,`student_id`,`birthday`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `yzsf_student_info` (
+  `student_id` varchar(10) DEFAULT NULL COMMENT '学生ID',
+  `student_name` varchar(300) DEFAULT NULL COMMENT '姓名',
+  `id_no` varchar(20) NOT NULL COMMENT '身份证',
+  `sex` varchar(1) DEFAULT NULL COMMENT '性别',
+  `enrol_time` varchar(14) DEFAULT NULL COMMENT '入学时间',
+  `nation` varchar(10) DEFAULT NULL COMMENT '民族',
+  `graduation time` varchar(14) DEFAULT NULL COMMENT '毕业时间',
+  `student_type` varchar(3) DEFAULT NULL COMMENT '学生类型 专科 本科...',
+  `student_status` varchar(3) DEFAULT NULL COMMENT '学生状态 在校.毕业...',
+  `faculty` varchar(100) DEFAULT NULL COMMENT '学院',
+  `class` varchar(10) NOT NULL COMMENT '班级',
+  `dormitory_id` varchar(6) DEFAULT NULL COMMENT '寝室号',
+  `phone` varchar(30) DEFAULT NULL COMMENT '手机号',
+  `emergency_phone` varchar(30) DEFAULT NULL COMMENT '紧急联系电话',
+  `credit` varchar(3) DEFAULT NULL COMMENT '已获得学分',
+  `graduation_project` varchar(100) DEFAULT NULL COMMENT '毕业设计',
+  `work_unit` varchar(300) DEFAULT NULL COMMENT '工作单位',
+  `internship_unit` varchar(2300) DEFAULT NULL COMMENT '实习单位',
+  `backup1` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup2` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup3` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup4` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup5` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup6` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup7` varchar(30) NOT NULL COMMENT '备用字段',
+  `backup8` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup9` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  PRIMARY KEY (`id_no`,`student_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `yzsf_teacher_info` (
+  `teacher_id` varchar(10) DEFAULT NULL COMMENT '老师ID',
+  `teacher_name` varchar(300) DEFAULT NULL COMMENT '姓名',
+  `id_no` varchar(20) NOT NULL COMMENT '身份证',
+  `sex` varchar(1) DEFAULT NULL COMMENT '性别',
+  `enrol_time` varchar(14) DEFAULT NULL COMMENT '入校时间',
+  `nation` varchar(10) DEFAULT NULL COMMENT '民族',
+  `work time` varchar(14) DEFAULT NULL COMMENT '工作年限',
+  `teacher_type` varchar(3) DEFAULT NULL COMMENT '老师类型 校聘 合同...',
+  `teacher_status` varchar(3) DEFAULT NULL COMMENT '老师状态 在职.离职...',
+  `faculty` varchar(100) DEFAULT NULL COMMENT '老师所属学院',
+  `educational attainment` varchar(10) NOT NULL COMMENT '老师学历',
+  `phone` varchar(30) DEFAULT NULL COMMENT '手机号',
+  `office_phone` varchar(30) DEFAULT NULL COMMENT '办公电话',
+  `backup1` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup2` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup3` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup4` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup5` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup6` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup7` varchar(30) NOT NULL COMMENT '备用字段',
+  `backup8` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup9` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  PRIMARY KEY (`id_no`,`teacher_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+CREATE TABLE `yzsf_course_info` (
+  `course_id` varchar(10) DEFAULT NULL COMMENT '课程ID',
+  `course_name` varchar(300) DEFAULT NULL COMMENT '课程名称',
+  `course_main_type` varchar(3) NOT NULL COMMENT '课程大类型 通识课 专业核心课',
+  `course_type` varchar(3) DEFAULT NULL COMMENT '课程类型 公共基础课 选修课',
+  `course_category` varchar(3) DEFAULT NULL COMMENT '课程类别 人文素质 科学素质',
+  `credit` varchar(5) DEFAULT NULL COMMENT '学分',
+  `period` varchar(5) DEFAULT NULL COMMENT '总学时 授课学时+实践学时=总学时',
+  `study_time` varchar(5) DEFAULT NULL COMMENT '授课学时',
+  `experiment_time` varchar(5) DEFAULT NULL COMMENT '实践学时',
+  `week_time` varchar(5) DEFAULT NULL COMMENT '周学时',
+  `course_term` varchar(3) NOT NULL COMMENT '授课学期',
+  `course_faculty` varchar(10) DEFAULT NULL COMMENT '授课学院',
+  `evaluation_type` varchar(3) DEFAULT NULL COMMENT '考核方式 考试 论文...',
+  `class_type` varchar(3) DEFAULT NULL COMMENT '上课方式 上机 非实践...',
+  `backup1` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup2` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup3` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup4` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup5` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup6` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup7` varchar(30) NOT NULL COMMENT '备用字段',
+  `backup8` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  `backup9` varchar(30) DEFAULT NULL COMMENT '备用字段',
+  PRIMARY KEY (`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
